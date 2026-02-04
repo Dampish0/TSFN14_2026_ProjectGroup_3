@@ -34,6 +34,8 @@ app.use(cookieparser());
 
 Agenda.start();
 app.use("/logos", express.static(path.join(process.cwd(), "public", "logos")));
+
+// we already have logging...
 app.use((req, res, next) => {
     console.log(`req method is ${req.method}, Req url is ${req.url}`);
     next();

@@ -2,6 +2,16 @@ import { Club } from "../models/club.js";
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+
+async function replaceLogoAndGetUrlCloudflare(url, rawImage) {
+
+}
+
+async function uploadLogoAndGetUrlCloudflare(rawImage) {
+
+}
+
 
 async function saveLogoAndGetUrl(base64) {
   if (!base64) return null;
