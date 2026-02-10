@@ -4,6 +4,8 @@ import path from "path";
 import sharp from "sharp";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
+const useR2ImageHandling = false;
+
 async function replaceLogoAndGetUrlCloudflare(url, rawImage) {
 
 }
