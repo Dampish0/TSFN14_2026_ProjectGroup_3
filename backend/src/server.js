@@ -28,7 +28,7 @@ app.use(cors({
     origin: process.env.CLIENT_URL,
     credentials: true,
 }));
-app.use(express.json()); // <-- This parses JSON bodies
+app.use(express.json());
 // app.use(ratelimiter);
 app.use(cookieparser());
 
@@ -50,8 +50,10 @@ app.use("/api/team", teamRoutes)
 app.use("/api/players", playerRoutes)
 app.use("/api/arena", arenaRoutes)
 app.use("/api/series", seriesRoutes)
-app.use("/api/admincase", adminCaseRoutes)
-
+app.use("/api/admincase", adminCaseRoutes) 
+app.get("/health", (req, res) => {
+  res.status(200).json({ ok: true });
+});
 
 const __dirname = path.resolve();
 
