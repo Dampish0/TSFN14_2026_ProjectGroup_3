@@ -14,4 +14,4 @@ RUN npm install
 COPY backend/. .
 COPY backend/.ENV .env
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
