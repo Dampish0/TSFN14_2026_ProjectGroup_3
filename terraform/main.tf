@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "rg" {
   tags     = var.tags
 }
 
-# ACR-namn måste vara globalt unikt och bara innehålla små bokstäver och siffror.
+
 resource "random_string" "acr_suffix" {
   length  = 6
   upper   = false
@@ -41,8 +41,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   tags = var.tags
 }
 
-# Ge AKS rättighet att PULL:a images från ACR
-# Viktigt: principal_id brukar vara kubelet_identity.object_id
+
 resource "azurerm_role_assignment" "acr_pull" {
   scope                = azurerm_container_registry.acr.id
   role_definition_name = "AcrPull"

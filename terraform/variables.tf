@@ -1,5 +1,5 @@
 variable "project_name" {
-  description = "Kort namn som används i resursnamn (t.ex. fogis)."
+  description = "Namn på projektet"
   type        = string
   default     = "fogis"
 }
