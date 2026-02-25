@@ -1,0 +1,8 @@
+// Week 1
+Our time was spend together to discuss our current application architecture and analyze our application to identify 
+potential issued related to scalability and fault tolerance.
+
+// Week 2
+As a group we all agreed on that each person in the group should find one potential issue in our application
+that we should work on and dig deeper into. After we discussed which issues we all identified we agreed on
+1 to focus on
