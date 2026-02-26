@@ -1,0 +1,5 @@
+Week 1: This week the group discussed both Scalability and Fault-tolerance with our application. Our application already handels a lot of Scalability and Fault-tolerance issues so it wasn’t easy to find them but after looking deeper into to our application we found some. We also made the architecture together.
+
+Week 2: This week the group dug deeper in to one of the issues and we chose the Scalability issue. I worked with discussing why it’s an issue and why it is a problem in our system. I also helped reshaped the architecture from task 1.
+
+Week 3: This week I worked with the terraform part where I had to read and understand how it works and how it can be implemented. Because everybody is having problem with Azure, we could not test it to fully with the current code. So we had to reshape it for the updated requirements for task 3. 
