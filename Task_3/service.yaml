@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fogis-backend-service
+  labels:
+    app: fogis-backend
+spec:
+  type: LoadBalancer
+  selector:
+    app: fogis-backend
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000

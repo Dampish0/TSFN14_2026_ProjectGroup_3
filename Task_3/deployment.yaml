@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fogis-backend
+  labels:
+    app: fogis-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fogis-backend
+  template:
+    metadata:
+      labels:
+        app: fogis-backend
+    spec:
+      containers:
+        - name: fogis-backend
+          image: dampish0/prodimage:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
