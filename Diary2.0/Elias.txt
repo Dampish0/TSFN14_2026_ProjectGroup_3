@@ -1,0 +1,9 @@
+week 1: we worked on task 1, We created a google doc and shared it with the team, i got tasked to find and write about a scalability issue and a fault tolerance issue. I found a scalability issue in the club controller. Then i also found a fault tolerance issue, where if mongoDB was unavailable the instance crashes.
+
+week 2: we worked on task 2, I drew the new architecture image, I used the old file and simply added some squares to it, it was quite easy. I was also tasked to write a piece in the report. I wrote about the solution and the trade off.
+
+week 3: I Went in and fixed the problems with task 2 to meet the requirements and looked at task 3.
+
+week 4: I tried starting on task 3 but it didnt work with azure.
+
+week 5: i created the docker image but i still couldnt use azure and terraform seems impossible to do on minikube.
