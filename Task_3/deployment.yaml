@@ -18,5 +18,13 @@ spec:
         - name: fogis-backend
           image: dampish0/prodimage:latest
           imagePullPolicy: Always
+          env:
+            - name: PORT
+              value: "5000"
+            - name: NODE_ENV
+              value: "production"
+          envFrom:
+            - secretRef:
+                name: fogis-backend-secrets
           ports:
             - containerPort: 5000
