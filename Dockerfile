@@ -12,6 +12,6 @@ WORKDIR /app/backend
 RUN npm install
 
 COPY backend/. .
-COPY backend/.ENV .env
+# COPY backend/.ENV .env
 
 CMD ["npm", "run", "start"]
