@@ -7,3 +7,7 @@ week 3: I Went in and fixed the problems with task 2 to meet the requirements an
 week 4: I tried starting on task 3 but it didnt work with azure.
 
 week 5: i created the docker image but i still couldnt use azure and terraform seems impossible to do on minikube.
+
+week 6: Azure started working on my account and we tested AKS while still using minikube to demonstrate
+
+week 7: We worked on presentation, i completed 2 slides in google presentation and then did nothing more for the week. 
