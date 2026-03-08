@@ -8,7 +8,7 @@ import { Toaster } from 'react-hot-toast';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CircularProgress } from '@mui/material';
 import useAuthStore from './store/authStore';
-import {standardRoutes, adminRoutes, ProtectedRoute, RedirectAuthenticated, refereeRoutes, trainerRoutes
+import {standardRoutes, adminRoutes, refereeRoutes, trainerRoutes
 
  } from './routes';
 import { useState } from 'react';
@@ -51,13 +51,45 @@ const theme = createTheme({
   },
 });
 
+const mockuser = {
+  "_id": { "$oid": "69ada9b8140f0fcb7cb10b57" },
+  "email": "testuser@example.com",
+  "password": "$2b$14$J.U4q.5KZXL6C5DY.a.yj.9dfleKgs5d4v2Xp47n.YKkGPcr.hEP6",
+  "name": "Samsom",
+  "lastLogin": { "$date": "2026-03-08T12:00:00Z" },
+  "role": "admin",
+  "refereeId": null,
+  "clubId": { "$oid": "69ada9b8140f0fcb7cb10b58" },
+  "resetPasswordToken": null,
+  "resetPasswordExpiresAt": null,
+  "actions": [
+    {
+      "type": "login",
+      "date": { "$date": "2026-03-08T12:00:00Z" },
+      "description": "User logged in"
+    }
+  ],
+  "notifications": [
+    {
+      "title": "Welcome",
+      "message": "Welcome to the platform!",
+      "date": { "$date": "2026-03-08T12:00:00Z" },
+      "read": false
+    }
+  ],
+  "adminCases": [],
+  "createdAt": { "$date": "2026-03-08T12:00:00Z" },
+  "updatedAt": { "$date": "2026-03-08T12:00:00Z" }
+}
 
 export const App = () => {
-  const {checkAuth, isCheckingAuth, isAuthenticated, user} = useAuthStore();
-  const role = user?.role || "guest"; // user?.role || "guest";
+  const { isCheckingAuth, checkAuth, isAuthenticated, user} = useAuthStore();
+  const role = "admin"; // user?.role || "guest";
 
   const [_, forceUpdate] = useState(0);
-
+  // const checkAuth = false;
+  // const isAuthenticated = true;
+  // const user = mockuser;
   // timeout to check auth after a period to get latest notiser and check if user still logged in
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -75,11 +107,11 @@ export const App = () => {
     checkAuth();
   }, [checkAuth])
 
-  // useEffect(() => {
-  //   if(user){
-  //     forceUpdate(n => n+1);
-  //   }
-  // }, [user]);
+  useEffect(() => {
+    if(user){
+      forceUpdate(n => n+1);
+    }
+  }, [user]);
    
 
   const [showBackdrop, setShowBackdrop] = useState(false);
