@@ -71,7 +71,7 @@ beforeAll(async () => {
   app = mod.default;
 });
 
-describe("Backend API (Task 4)", () => {
+describe("Backend API", () => {
   test("GET /health returns ok=true (happy path)", async () => {
     // Verifies the service is reachable.
     const res = await request(app).get("/health");
@@ -145,7 +145,7 @@ describe("Backend API (Task 4)", () => {
     expect(res.body).toMatchObject({ success: true, matchId: "abc123" });
   });
 
-  test("POST /api/auth/login returns 200 (controller wired)", async () => {
+  test("POST /api/auth/login returns 200", async () => {
     // Verifies login endpoint is wired (ratelimiter mocked).
     const res = await request(app).post("/api/auth/login").send({ email: "x", password: "y" });
     expect(res.status).toBe(200);
