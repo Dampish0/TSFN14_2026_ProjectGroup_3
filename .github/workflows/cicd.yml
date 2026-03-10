@@ -73,8 +73,9 @@ jobs:
 
       - name: Deploy manifests
         run: |
-          kubectl apply -f Task_3/deployment.yaml
-          kubectl apply -f Task_3/service.yaml
+          kubectl apply -f "Task 5/deployment.yaml"
+          kubectl apply -f "Task 5/service.yaml"
+          kubectl apply -f "Task 5/hpa.yaml"
 
       - name: Update image
         run: |
