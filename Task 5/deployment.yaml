@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fogis-backend
+  labels:
+    app: fogis-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fogis-backend
+  template:
+    metadata:
+      labels:
+        app: fogis-backend
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: fogis-backend
+          image: dampish0/prodimage:latest
+          imagePullPolicy: Always
+          env:
+            - name: PORT
+              value: "5000"
+            - name: NODE_ENV
+              value: "production"
+          envFrom:
+            - secretRef:
+                name: fogis-backend-secrets
+          ports:
+            - name: http
+              containerPort: 5000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          startupProbe:
+            httpGet:
+              path: /health/startup
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 18
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            timeoutSeconds: 2
+            failureThreshold: 3
