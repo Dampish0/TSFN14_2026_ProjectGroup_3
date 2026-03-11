@@ -5,3 +5,5 @@ Week 2: This week the group dug deeper in to one of the issues and we chose the 
 Week 3: This week I worked with the terraform part where I had to read and understand how it works and how it can be implemented. Because everybody is having problem with Azure, we could not test it to fully with the current code. So we had to reshape it for the updated requirements for task 3. 
 
 Week 4: This week the group focused on working on task 4. I worked with the files deployment.yaml, package.json and the server.js. I changed and adapted them so that we are able to complete task 4. I also started to write down what I´m gonna say for the presentation and help with the powerpoint.
+
+week 5: This week we had our presentation for the class that went well. I helped the other members a little but mainly focused on evolving app.test.js to give more accurate tests regarding the routing and authentication logic.
