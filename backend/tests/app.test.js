@@ -76,7 +76,28 @@ describe("Backend API", () => {
     // Verifies the service is reachable.
     const res = await request(app).get("/health");
     expect(res.status).toBe(200);
-    expect(res.body).toEqual({ ok: true });
+    expect(res.body).toMatchObject({ ok: true, alive: true, ready: true, startupComplete: true });
+  });
+
+  test("GET /health/live returns alive status", async () => {
+    const res = await request(app).get("/health/live");
+
+    expect(res.status).toBe(200);
+    expect(res.body).toMatchObject({ ok: true, status: "alive", alive: true });
+  });
+
+  test("GET /health/ready returns ready status in test env", async () => {
+    const res = await request(app).get("/health/ready");
+
+    expect(res.status).toBe(200);
+    expect(res.body).toMatchObject({ ok: true, status: "ready", ready: true });
+  });
+
+  test("GET /health/startup returns started status in test env", async () => {
+    const res = await request(app).get("/health/startup");
+
+    expect(res.status).toBe(200);
+    expect(res.body).toMatchObject({ ok: true, status: "started", startupComplete: true });
   });
 
   test("GET /api/auth/check-auth rejects missing auth cookie", async () => {
