@@ -1,0 +1,7 @@
+# Task 5 – Monitoring and Basic Scaling
+
+The backend now exposes three HTTP health endpoints so Kubernetes can track runtime state. `/health/startup` returns `200` only after the application has finished its startup, which in this project means MongoDB is connected, Agenda has started, and the HTTP server is listening. `/health/ready` returns `200` only when startup is complete, the database connection is healthy, and the pod is not shutting down. This tells Kubernetes whether the pod should receive traffic through the Service. `/health/live` returns `200` while the process is alive, which lets Kubernetes distinguish a running pod from one that is stuck or crashed.
+
+The backend also logs key runtime events to console. Each request now logs when it is received and when it completes, together with method, path, status code, duration, and a request id. Startup, shutdown, readiness failures, and unhandled errors are also logged. Because the logs go to console, they can be observed directly in Kubernetes tools such as Lens, K9s, Dashboard, or with `kubectl logs`.
+
+Scaling is handled by a Horizontal Pod Autoscaler. The Deployment now defines CPU and memory requests and limits, and the HPA watches CPU utilization. When the CPU usage rises above the configured target of 60% of CPU usage, Kubernetes increases the replica count up, limited by maximum. When the load drops again, Kubernetes scales the Deployment back down, but never below the configured minimum replica count.
