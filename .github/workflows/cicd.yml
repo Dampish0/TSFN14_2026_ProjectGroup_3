@@ -50,37 +50,37 @@ jobs:
             ${{ env.DOCKER_IMAGE }}:${{ github.sha }}
             ${{ env.DOCKER_IMAGE }}:latest
 
-      - name: Setup kubectl
-        uses: azure/setup-kubectl@v4
+      # - name: Setup kubectl
+      #   uses: azure/setup-kubectl@v4
 
-      - name: Configure kubeconfig
-        env:
-          KUBE_CONFIG_B64: ${{ secrets.KUBE_CONFIG_B64 }}
-        run: |
-          echo "$KUBE_CONFIG_B64" | base64 -d > kubeconfig
-          echo "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
+      # - name: Configure kubeconfig
+      #   env:
+      #     KUBE_CONFIG_B64: ${{ secrets.KUBE_CONFIG_B64 }}
+      #   run: |
+      #     echo "$KUBE_CONFIG_B64" | base64 -d > kubeconfig
+      #     echo "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
 
-      - name: Create/update Kubernetes secret
-        run: |
-          kubectl create secret generic fogis-backend-secrets \
-            --from-literal=MONGO_URI='${{ secrets.MONGO_URI }}' \
-            --from-literal=JWT_SECRET='${{ secrets.JWT_SECRET }}' \
-            --from-literal=CLIENT_URL='${{ secrets.CLIENT_URL }}' \
-            --from-literal=UPSTASH_REDIS_REST_URL='${{ secrets.UPSTASH_REDIS_REST_URL }}' \
-            --from-literal=UPSTASH_REDIS_REST_TOKEN='${{ secrets.UPSTASH_REDIS_REST_TOKEN }}' \
-            --from-literal=MAILTRAP_TOKEN='${{ secrets.MAILTRAP_TOKEN }}' \
-            --dry-run=client -o yaml | kubectl apply -f -
+      # - name: Create/update Kubernetes secret
+      #   run: |
+      #     kubectl create secret generic fogis-backend-secrets \
+      #       --from-literal=MONGO_URI='${{ secrets.MONGO_URI }}' \
+      #       --from-literal=JWT_SECRET='${{ secrets.JWT_SECRET }}' \
+      #       --from-literal=CLIENT_URL='${{ secrets.CLIENT_URL }}' \
+      #       --from-literal=UPSTASH_REDIS_REST_URL='${{ secrets.UPSTASH_REDIS_REST_URL }}' \
+      #       --from-literal=UPSTASH_REDIS_REST_TOKEN='${{ secrets.UPSTASH_REDIS_REST_TOKEN }}' \
+      #       --from-literal=MAILTRAP_TOKEN='${{ secrets.MAILTRAP_TOKEN }}' \
+      #       --dry-run=client -o yaml | kubectl apply -f -
 
-      - name: Deploy manifests
-        run: |
-          kubectl apply -f "Task_5/deployment.yaml"
-          kubectl apply -f "Task_5/service.yaml"
-          kubectl apply -f "Task_5/hpa.yaml"
+      # - name: Deploy manifests
+      #   run: |
+      #     kubectl apply -f "Task_5/deployment.yaml"
+      #     kubectl apply -f "Task_5/service.yaml"
+      #     kubectl apply -f "Task_5/hpa.yaml"
 
-      - name: Update image
-        run: |
-          kubectl set image deployment/fogis-backend fogis-backend=${{ env.DOCKER_IMAGE }}:${{ github.sha }}
+      # - name: Update image
+      #   run: |
+      #     kubectl set image deployment/fogis-backend fogis-backend=${{ env.DOCKER_IMAGE }}:${{ github.sha }}
 
-      - name: Wait for rollout
-        run: |
-          kubectl rollout status deployment/fogis-backend --timeout=180s
+      # - name: Wait for rollout
+      #   run: |
+      #     kubectl rollout status deployment/fogis-backend --timeout=180s
