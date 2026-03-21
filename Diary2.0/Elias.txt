@@ -13,3 +13,5 @@ week 9: Azure started working on my account and we tested AKS while still using 
 week 10: We worked on presentation, i completed 2 slides in google presentation and then did nothing more for the week except add the endpoint /health.
 
 week 11: We started working on task 5 together, I tried to divide the work up fairly and i worked on the hpa and service state, that basically tracks the current state for other scripts.
+
+week 12: Since i already had minikube running and my azure was the only account working, I ran the jmeter testing and generated the screenshots and csv summaries, the rest of the group were tasked to write the analysis report to make it equal and fair.
