@@ -5,4 +5,18 @@ potential issued related to scalability and fault tolerance.
 // Week 2
 As a group we all agreed on that each person in the group should find one potential issue in our application
 that we should work on and dig deeper into. After we discussed which issues we all identified we agreed on
-1 to focus on
+1 to focus on.
+
+// Week 3
+ Worked on trying to get backend servicies running on azure (AKS). We all had some difficulties but managed it.
+ created documents to show our progress.
+
+// Week 4
+We worked togheter in order to finish task 4. we agreed on which frameork to evaluate and later worked on set of automated test.
+also worked on the presentation.
+
+// week 5
+I was sick this week, and we had our presentation which i could not attend to
+
+//week 6
+Worked togheter to test our backend service. We looked and analyzed the behaviour and discussed alot in order to understand and learn.
