@@ -1,0 +1,18 @@
+week 4: For task 1 we worked together to create a diagram of the old application architecture. We also tried to identify isses with the system, which was a bit tricky since we had some fault tolerance already implemented in the course before. In the end we found one problem with scalabilty and three problems with fault tolerance. 
+
+week 5: For task 2 we decieded to dig into an issue with the application each, I help to improve the architecture from task 1 and I discussed under what conditions it would become noticable. 
+
+week 6: Work stalled this week because we couldnt create an account on azure and therfore could not work
+
+week 7: This whas exam week and i had a reexam, so was not able to put alot of focus on the project. 
+
+week 8: Me and Elias worked toghether on the report for task 3 
+
+week 9: Azure started working for us and I worked on finding evidence to satisfy the requirement for task 4 
+
+week 10: We prepared our presentation, I woked on the intro, the coverage fo task 1, and the refelction at the end of the presentation
+
+week 11: We presented the project and worked on task 5 together 
+
+week 12: For task 6 we worked to create the report, I worked on results and observations  
+
