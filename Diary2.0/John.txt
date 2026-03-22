@@ -7,3 +7,5 @@ Week 3: This week I worked with the terraform part where I had to read and under
 Week 4: This week the group focused on working on task 4. I worked with the files deployment.yaml, package.json and the server.js. I changed and adapted them so that we are able to complete task 4. I also started to write down what I´m gonna say for the presentation and help with the powerpoint.
 
 week 5: This week we had our presentation for the class that went well. I helped the other members a little but mainly focused on evolving app.test.js to give more accurate tests regarding the routing and authentication logic.
+
+week 6: This week was the exam week, the whole group decided to focus on studying for the exam in both courses and work togheter with task 6 in the end of the week. With task 6 the group worked togheter trough discord and discussed all necessary requirements that needed to completed.
